@@ -1,16 +1,17 @@
-Joined Expression
+Joined Expression:
+-------------------
 ((A:)(:A){1,6}|A::)|::((A:){1,6}A)|(A:){2}:(A:){0,4}A?|(A:){3}:(A:){0,3}A?|(A:){4}:(A:){0,2}A?|(A:){5}:(A:){0,1}A?|(A:){6}:A?|A:(A:){6}A|(A:){0,6}A::|::A
 
 can be run in https://regex101.com/r/twtC1J/1
 
-Here I broke down different cases to expressions
-above is all the expressions joined with | 
 
-I have used A as a placeholder for the [a-fA-F0-9] 
-so the final expression will be larger
-There are 45 A in the final expressions 
+Expanded version ( replaced A placeholder with [A-Fa-f0-9]{1,4})
+----------------------------------------------------------------
+(([A-Fa-f0-9]{1,4}:)(:[A-Fa-f0-9]{1,4}){1,6}|[A-Fa-f0-9]{1,4}::)|::(([A-Fa-f0-9]{1,4}:){1,6}[A-Fa-f0-9]{1,4})|([A-Fa-f0-9]{1,4}:){2}:([A-Fa-f0-9]{1,4}:){0,4}[A-Fa-f0-9]{1,4}?|([A-Fa-f0-9]{1,4}:){3}:([A-Fa-f0-9]{1,4}:){0,3}[A-Fa-f0-9]{1,4}?|([A-Fa-f0-9]{1,4}:){4}:([A-Fa-f0-9]{1,4}:){0,2}[A-Fa-f0-9]{1,4}?|([A-Fa-f0-9]{1,4}:){5}:([A-Fa-f0-9]{1,4}:){0,1}[A-Fa-f0-9]{1,4}?|([A-Fa-f0-9]{1,4}:){6}:[A-Fa-f0-9]{1,4}?|[A-Fa-f0-9]{1,4}:([A-Fa-f0-9]{1,4}:){6}[A-Fa-f0-9]{1,4}|([A-Fa-f0-9]{1,4}:){0,6}[A-Fa-f0-9]{1,4}::|::[A-Fa-f0-9]{1,4}
+length: 528
 
-so the final size will be 383 bytes ( 153-45+(45*11) )
+
+Each case is broken down to the expression that should match it 
 
 (A:){6}:A?
 ------------------------
