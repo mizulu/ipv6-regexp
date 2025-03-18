@@ -1,0 +1,131 @@
+Joined Expression
+((A:)(:A){1,6}|A::)|::((A:){1,6}A)|(A:){2}:(A:){0,4}A?|(A:){3}:(A:){0,3}A?|(A:){4}:(A:){0,2}A?|(A:){5}:(A:){0,1}A?|(A:){6}:A?|A:(A:){6}A|(A:){0,6}A::|::A
+
+
+Here I broke down different cases to expressions
+above is all the expressions joined with | 
+
+I have used A as a placeholder for the [a-fA-F0-9] 
+so the final expression will be larger
+There are 45 A in the final expressions 
+
+so the final size will be 383 bytes ( 153-45+(45*11) )
+
+(A:){6}:A?
+------------------------
+A:A:A:A:A:A::
+A:A:A:A:A:A::A
+A:A:A:A:A:A::AA  control
+
+(A:){5}:(A:){0,1}A?
+------------------------
+A:A:A:A:A::
+A:A:A:A:A::A
+A:A:A:A:A::A:A
+A:A:A:A:A::A:A:A   control
+
+(A:){4}:(A:){0,2}A?
+------------------------
+A:A:A:A::
+A:A:A:A::A
+A:A:A:A::A:A
+A:A:A:A::A:A:A
+A:A:A:A::A:A:A:A   control
+
+(A:){3}:(A:){0,3}A?
+------------------------
+A:A:A::
+A:A:A::A
+A:A:A::A:A
+A:A:A::A:A:A
+A:A:A::A:A:A:A
+A:A:A::A:A:A:A:A  control
+
+(A:){2}:(A:){0,4}A?
+------------------------
+A:A::
+A:A::A
+A:A::A:A
+A:A::A:A:A
+A:A::A:A:A:A
+A:A::A:A:A:A:A
+A:A::A:A:A:A:A:A  control
+
+((A:)(:A){1,6}|A::)
+------------------------
+A::
+A::A
+A::A:A
+A::A:A:A
+A::A:A:A:A
+A::A:A:A:A:A
+A::A:A:A:A:A:A
+A::A:A:A:A:A:A:A  control 
+
+::((A:){1,6}A)|::A
+------------------------
+::A
+::A:A
+::A:A:A
+::A:A:A:A
+::A:A:A:A:A
+::A:A:A:A:A:A
+::A:A:A:A:A:A:A
+::A:A:A:A:A:A:A:A  control
+
+(A:){0,6}A::
+------------------------
+A::
+A:A::
+A:A:A::
+A:A:A:A::
+A:A:A:A:A::
+A:A:A:A:A:A::
+A:A:A:A:A:A:A::
+A:A:A:A:A:A:A:A::  control
+
+A:(A:){6}A
+------------------------
+A:A:A:A:A:A:A:A
+A:A:A:A:A:A:A:A:A  control 
+
+
+
+A:A:A:A:A:A:A:A::A
+A:A:A:A:A:A:A:A::
+A:A:A:A:A:A:A:A
+::A:A:A:A:A:A:A:A
+A::A:A:A:A:A:A
+A:A::A:A:A:A:A
+A:A:A::A:A:A:A
+A:A:A:A::A:A:A
+A:A:A:A:A::A:A
+A:A:A:A:A:A::A
+::A:A:A:A:A:A
+A:A:A:A:A:A:: 
+A::A:A:A:A:A
+A::A:A:A:A:A:A:A
+A:A::A:A:A:A
+A:A:A::A:A:A
+A:A:A:A::A:A
+A:A:A:A:A::A
+::A:A:A:A:A
+A:A:A:A:A::
+A::A:A:A:A
+A:A::A:A:A
+A:A:A::A:A
+A:A:A:A::A
+::A:A:A:A
+A:A:A:A::
+A::A:A:A
+A:A::A:A
+A:A:A::A
+::A:A:A
+A:A:A::
+::A:A
+A:A::A
+::A:A
+A:A::
+A::A
+::A
+A::
